@@ -1,0 +1,768 @@
+/* ---------- ОБНУЛЕНИЕ ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+    line-height: 1.5;
+    color: #2c2c2c;
+    background: #fafaf8;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- КНОПКИ ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn--primary {
+    background-color: #2c3e2f;
+    color: white;
+}
+
+.btn--primary:hover {
+    background-color: #1e2a20;
+    transform: translateY(-2px);
+}
+
+.btn--small {
+    background-color: #2c3e2f;
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    border-radius: 30px;
+}
+
+/* ---------- ХЭДЭР С ЛОГОТИПОМ ---------- */
+.header {
+    background: white;
+    box-shadow: 0 1px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo__img {
+    height: 40px;
+    width: auto;
+    /* Если логотип квадратный, можно задать width: 40px */
+}
+
+.logo__text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e2f;
+}
+
+/* НАВИГАЦИЯ */
+.nav__list {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #3a3a3a;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.nav__link:hover,
+.nav__link.active {
+    color: #2c3e2f;
+    border-bottom: 2px solid #2c3e2f;
+    padding-bottom: 4px;
+}
+
+/* ИКОНКИ В ХЭДЕРЕ (картинки) */
+.header__icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.icon-img {
+    width: 24px;
+    height: 24px;
+    transition: 0.2s;
+}
+
+.icon-link:hover .icon-img {
+    transform: scale(1.1);
+}
+
+/* ---------- HERO С ФОНОВОЙ КАРТИНКОЙ ---------- */
+.hero {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85);
+}
+
+.hero__container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero__content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    color: white;
+}
+
+.hero__title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero__text {
+    font-size: 1.2rem;
+    margin-bottom: 32px;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+/* ---------- КАТЕГОРИИ С КАРТИНКАМИ ---------- */
+.categories {
+    padding: 70px 0 50px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 48px;
+    color: #2c3e2f;
+}
+
+.categories__grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.category-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.25s;
+    cursor: pointer;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.category-card__image {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+}
+
+.category-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.category-card:hover .category-card__image img {
+    transform: scale(1.05);
+}
+
+.category-card__title {
+    display: block;
+    padding: 12px;
+    font-weight: 600;
+    background: white;
+}
+
+/* ---------- КАРТОЧКИ ТОВАРОВ С ФОТО ---------- */
+.featured {
+    padding: 20px 0 70px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    transition: 0.25s;
+    border: 1px solid #edefe7;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+}
+
+.product-card__image {
+    width: 100%;
+    height: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #f4f6f0;
+}
+
+.product-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-card__image img {
+    transform: scale(1.03);
+}
+
+.product-card__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.product-card__desc {
+    font-size: 0.85rem;
+    color: #6b6b6b;
+    margin-bottom: 12px;
+}
+
+.product-card__price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e2f;
+    margin-bottom: 16px;
+}
+
+/* ---------- ПРЕИМУЩЕСТВА С ИКОНКАМИ ---------- */
+.advantages {
+    background: #f0f2ea;
+    padding: 48px 0;
+    margin: 20px 0;
+}
+
+.advantages__grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.advantage-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.advantage-icon {
+    width: 28px;
+    height: 28px;
+}
+
+/* ---------- ФУТЕР С ЛОГО ---------- */
+.footer {
+    background: #1e2a20;
+    color: #ccc;
+    padding-top: 48px;
+    margin-top: 40px;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    height: 32px;
+    width: auto;
+    margin-bottom: 12px;
+    filter: brightness(0.9);
+}
+
+.footer__col h4 {
+    color: #f0f0e8;
+    margin-bottom: 16px;
+}
+
+.footer__col ul {
+    list-style: none;
+}
+
+.footer__col li {
+    margin-bottom: 8px;
+}
+
+.footer__col a {
+    color: #b0b8a8;
+    text-decoration: none;
+}
+
+.footer__col a:hover {
+    color: white;
+}
+
+.footer__bottom {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #33442e;
+}
+.catalog-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #2c3e2f;
+    color: white;
+    border-color: #2c3e2f;
+}
+
+/* Страница "О нас" */
+.about-content {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-text h3 {
+    margin: 30px 0 15px 0;
+    color: #2c3e2f;
+    font-size: 24px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.about-text ul {
+    margin-left: 20px;
+    line-height: 1.8;
+}
+
+.about-stats {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: #f5f5f0;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 16px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e2f;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Страница контактов */
+.contacts-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.contacts-info {
+    flex: 1;
+}
+
+.contact-item {
+    margin-bottom: 30px;
+}
+
+.contact-label {
+    font-weight: bold;
+    color: #2c3e2f;
+    margin-bottom: 5px;
+}
+
+.contact-value {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.contact-desc {
+    font-size: 14px;
+    color: #777;
+}
+
+.contacts-map {
+    flex: 1;
+}
+
+.map-placeholder {
+    background: #e0e0d5;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    color: #666;
+}
+
+.contacts-form {
+    background: #f5f5f0;
+    padding: 40px;
+    border-radius: 24px;
+    margin-top: 20px;
+}
+
+.contacts-form h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.form-row {
+    margin-bottom: 15px;
+}
+
+.form-row input,
+.form-row textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+    outline: none;
+    border-color: #2c3e2f;
+}
+
+
+/* Адаптив для новых страниц */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contacts-grid {
+        flex-direction: column;
+    }
+    
+    .contacts-form {
+        padding: 20px;
+    }
+    
+    .catalog-filters {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 6px 16px;
+        font-size: 12px;
+    }
+}
+/* Страница контактов - новая концепция */
+.contacts-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contacts-cards {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.contact-card {
+    flex: 1;
+    background: white;
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid #e8ebe3;
+    transition: 0.25s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+}
+
+.contact-card-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.contact-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #2c3e2f;
+}
+
+.contact-card-value {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.contact-card-desc {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.contact-card-time {
+    font-size: 13px;
+    color: #2c3e2f;
+    font-weight: 500;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+}
+
+.contacts-promo {
+    background: #f0f2ea;
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.promo-text h3 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #2c3e2f;
+}
+
+.promo-text p {
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.promo-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.promo-features span {
+    font-size: 14px;
+    color: #2c3e2f;
+    font-weight: 500;
+}
+
+.btn--large {
+    padding: 14px 32px;
+    font-size: 16px;
+}
+
+.contacts-form {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid #e8ebe3;
+}
+
+.contacts-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #2c3e2f;
+}
+
+.form-row-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-row-group .form-row {
+    flex: 1;
+}
+
+
+
+/* Исправление — кнопки навигации по центру */
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header__icons {
+    display: none;
+}
+@media (max-width: 768px) {
+    .contacts-cards {
+        flex-direction: column;
+    }
+    
+    .contacts-promo {
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .promo-features {
+        justify-content: center;
+    }
+    
+    .contacts-form {
+        padding: 20px;
+    }
+    
+    .form-row-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+
+/* ---------- АДАПТИВ ---------- */
+@media (max-width: 800px) {
+    .header__container {
+        flex-direction: column;
+    }
+    .hero__title {
+        font-size: 2rem;
+    }
+    .advantages__grid {
+        justify-content: center;
+    }
+    .category-card {
+        width: 150px;
+    }
+}
+
+@media (max-width: 550px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    .categories__grid {
+        gap: 12px;
+    }
+}
